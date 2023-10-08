@@ -1,0 +1,15 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && apt-get -y install sudo
+
+RUN useradd -m -d /home/user1 -s /bin/bash user1
+RUN useradd -m -d /home/user2 -s /bin/bash user2
+
+RUN echo "Olá user1" > /home/user1/texto.txt
+RUN echo "Olá user2" > /home/user2/texto.txt
+
+RUN chmod 664 /home/user1/texto.txt
+
+RUN echo "user1 ALL=(user2) NOPASSWD:ALL" >> /etc/sudoers
+
+CMD ["/bin/bash"]

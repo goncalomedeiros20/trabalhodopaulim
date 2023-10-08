@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+os:
+myapp:
+    build:
+      context: C:\Users\Gonçalo Medeiros\Desktop\Trabalho de docker
+    container_name: my_container
+image: ubuntu:22.04
+tty: true
+environment:
+- VAR1=abc
+- VAR2=def
